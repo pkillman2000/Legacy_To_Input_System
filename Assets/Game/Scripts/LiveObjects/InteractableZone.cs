@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Game.Scripts.UI;
-using UnityEngine.InputSystem;
 
 
 namespace Game.Scripts.LiveObjects
@@ -66,28 +65,6 @@ namespace Game.Scripts.LiveObjects
         public static event Action<InteractableZone> onZoneInteractionComplete;
         public static event Action<int> onHoldStarted;
         public static event Action<int> onHoldEnded;
-
-        private PlayerInputActions _inputActions;
-
-        private void Start()
-        {
-            _inputActions = new PlayerInputActions();
-            if( _inputActions == null ) 
-            {
-                Debug.Log("Input Actions is Null!");
-            }
-            else
-            {
-                _inputActions.Player.Enable();
-            }
-
-            _inputActions.Player.Interaction.performed += Interaction_performed;
-        }
-
-        private void Interaction_performed(InputAction.CallbackContext obj)
-        {
-            
-        }
 
         private void OnEnable()
         {

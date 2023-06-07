@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Game.Scripts.LiveObjects;
 using Cinemachine;
-using UnityEngine.InputSystem;
 
 namespace Game.Scripts.Player
 {
@@ -23,9 +22,6 @@ namespace Game.Scripts.Player
         [SerializeField]
         private GameObject _model;
 
-        // New Input System
-        private PlayerInputActions _inputActions;
-        private Vector2 _movementDirection;
 
         private void OnEnable()
         {
@@ -50,17 +46,6 @@ namespace Game.Scripts.Player
 
             if (_anim == null)
                 Debug.Log("Failed to connect the Animator");
-
-            // New Input System
-            _inputActions = new PlayerInputActions();
-            if( _inputActions == null )
-            {
-                Debug.LogWarning("Input System is Null!");
-            }
-            else
-            {
-                _inputActions.Player.Enable();
-            }
         }
 
         private void Update()
@@ -73,17 +58,12 @@ namespace Game.Scripts.Player
         private void CalcutateMovement()
         {
             _playerGrounded = _controller.isGrounded;
-            
-            /* Legacy Input System
             float h = Input.GetAxisRaw("Horizontal");
             float v = Input.GetAxisRaw("Vertical");
-            */
 
-            _movementDirection = _inputActions.Player.Movement.ReadValue<Vector2>();
+            transform.Rotate(transform.up, h);
 
-            transform.Rotate(transform.up, _movementDirection.x);
-
-            var direction = transform.forward * _movementDirection.y;
+            var direction = transform.forward * v;
             var velocity = direction * _speed;
 
 
