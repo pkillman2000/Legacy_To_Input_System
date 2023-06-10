@@ -48,13 +48,12 @@ namespace Game.Scripts.LiveObjects
             _inputActions.Player.EndInteraction.performed += EndInteraction_performed;
         }
 
-
         private void Interaction_started(InputAction.CallbackContext obj) // Interaction Key down
         {
             _isStartKeyDown = true;
         }
 
-        private void Interaction_performed(InputAction.CallbackContext obj)
+        private void Interaction_performed(InputAction.CallbackContext obj) // Cycle through cameras
         {
             _switchCamera = true;
         }
@@ -160,8 +159,13 @@ namespace Game.Scripts.LiveObjects
         {
             InteractableZone.onHoldStarted -= InteractableZone_onHoldStarted;
             InteractableZone.onHoldEnded -= InteractableZone_onHoldEnded;
+
+            // New Input System
+            _inputActions.Player.Interaction.started -= Interaction_started;
+            _inputActions.Player.Interaction.performed -= Interaction_performed;
+            _inputActions.Player.Interaction.canceled += Interaction_canceled;
+            _inputActions.Player.EndInteraction.performed -= EndInteraction_performed;
         }
     }
-
 }
 

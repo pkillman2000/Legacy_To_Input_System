@@ -82,25 +82,26 @@ namespace Game.Scripts.Player
             _movementDirection = _inputActions.Player.Movement.ReadValue<Vector2>();
             float h = _movementDirection.x;
             float v = _movementDirection.y;
+            // End New Input System
 
             transform.Rotate(transform.up, h);
 
             var direction = transform.forward * v;
             var velocity = direction * _speed;
 
-
             _anim.SetFloat("Speed", Mathf.Abs(velocity.magnitude));
 
-
             if (_playerGrounded)
+            {
                 velocity.y = 0f;
+            }
+
             if (!_playerGrounded)
             {
                 velocity.y += -20f * Time.deltaTime;
             }
             
-            _controller.Move(velocity * Time.deltaTime);                      
-
+            _controller.Move(velocity * Time.deltaTime);
         }
 
         private void InteractableZone_onZoneInteractionComplete(InteractableZone zone)
@@ -122,8 +123,6 @@ namespace Game.Scripts.Player
             _followCam.Priority = 9;
         }
 
-        // TODO
-        // Modify to turn action maps on and off
         private void ReturnPlayerControl()
         {
             _model.SetActive(true);

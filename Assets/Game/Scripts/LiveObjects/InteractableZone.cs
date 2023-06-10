@@ -311,8 +311,13 @@ namespace Game.Scripts.LiveObjects
         private void OnDisable()
         {
             InteractableZone.onZoneInteractionComplete -= SetMarker;
-        }       
-        
+
+            // New Input System
+            _inputActions.Player.Interaction.started -= Interaction_started;
+            _inputActions.Player.Interaction.performed -= Interaction_performed;
+            _inputActions.Player.Interaction.canceled -= Interaction_canceled;
+
+        }
     }
 }
 

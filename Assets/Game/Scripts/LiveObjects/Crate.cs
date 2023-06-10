@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// I do not see any legacy input in this script.
 namespace Game.Scripts.LiveObjects
 {
     public class Crate : MonoBehaviour
@@ -50,8 +49,7 @@ namespace Game.Scripts.LiveObjects
 
         private void Start()
         {
-            _brakeOff.AddRange(_pieces);
-            
+            _brakeOff.AddRange(_pieces);            
         }
 
 
