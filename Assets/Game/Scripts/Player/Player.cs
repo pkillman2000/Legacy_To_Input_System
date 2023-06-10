@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Game.Scripts.LiveObjects;
 using Cinemachine;
+using UnityEngine.InputSystem;
 
 namespace Game.Scripts.Player
 {
@@ -22,6 +23,9 @@ namespace Game.Scripts.Player
         [SerializeField]
         private GameObject _model;
 
+        // New Input System
+        private PlayerInputActions _inputActions;
+        private Vector2 _movementDirection;
 
         private void OnEnable()
         {
@@ -46,6 +50,17 @@ namespace Game.Scripts.Player
 
             if (_anim == null)
                 Debug.Log("Failed to connect the Animator");
+
+            // New Input System
+            _inputActions = new PlayerInputActions();
+            if(_inputActions == null)
+            {
+                Debug.Log("Input Actions Is Null!");
+            }
+            else
+            {
+                _inputActions.Player.Enable();
+            }
         }
 
         private void Update()
@@ -58,8 +73,15 @@ namespace Game.Scripts.Player
         private void CalcutateMovement()
         {
             _playerGrounded = _controller.isGrounded;
+            /* Legacy Input System
             float h = Input.GetAxisRaw("Horizontal");
             float v = Input.GetAxisRaw("Vertical");
+            */
+
+            // New Input System
+            _movementDirection = _inputActions.Player.Movement.ReadValue<Vector2>();
+            float h = _movementDirection.x;
+            float v = _movementDirection.y;
 
             transform.Rotate(transform.up, h);
 
@@ -100,6 +122,8 @@ namespace Game.Scripts.Player
             _followCam.Priority = 9;
         }
 
+        // TODO
+        // Modify to turn action maps on and off
         private void ReturnPlayerControl()
         {
             _model.SetActive(true);
@@ -128,7 +152,6 @@ namespace Game.Scripts.Player
             Drone.OnEnterFlightMode -= ReleasePlayerControl;
             Drone.onExitFlightmode -= ReturnPlayerControl;
         }
-
     }
 }
 

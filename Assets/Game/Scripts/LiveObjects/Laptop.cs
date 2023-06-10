@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Cinemachine;
+using UnityEngine.InputSystem;
 
 namespace Game.Scripts.LiveObjects
 {
@@ -23,6 +24,51 @@ namespace Game.Scripts.LiveObjects
         public static event Action onHackComplete;
         public static event Action onHackEnded;
 
+        // New Input System
+        private PlayerInputActions _inputActions;
+        private bool _isStartKeyDown = false;
+        private bool _isExitKeyDown = false;
+        private bool _switchCamera = false;
+
+        private void Start()
+        {
+            _inputActions = new PlayerInputActions();
+            if(_inputActions == null)
+            {
+                Debug.LogWarning("Input Actions is Null!");
+            }
+            else
+            {
+                _inputActions.Player.Enable();
+            }
+
+            _inputActions.Player.Interaction.started += Interaction_started;
+            _inputActions.Player.Interaction.performed += Interaction_performed;
+            _inputActions.Player.Interaction.canceled += Interaction_canceled;
+            _inputActions.Player.EndInteraction.performed += EndInteraction_performed;
+        }
+
+
+        private void Interaction_started(InputAction.CallbackContext obj) // Interaction Key down
+        {
+            _isStartKeyDown = true;
+        }
+
+        private void Interaction_performed(InputAction.CallbackContext obj)
+        {
+            _switchCamera = true;
+        }
+
+        private void Interaction_canceled(InputAction.CallbackContext obj) // Interaction Key Up
+        {
+            _isStartKeyDown = false;
+        }
+
+        private void EndInteraction_performed(InputAction.CallbackContext obj)// End Interaction Key Pressed
+        {
+            _isExitKeyDown = true;
+        }
+
         private void OnEnable()
         {
             InteractableZone.onHoldStarted += InteractableZone_onHoldStarted;
@@ -33,7 +79,7 @@ namespace Game.Scripts.LiveObjects
         {
             if (_hacked == true)
             {
-                if (Input.GetKeyDown(KeyCode.E))
+                if (_switchCamera)
                 {
                     var previous = _activeCamera;
                     _activeCamera++;
@@ -45,13 +91,15 @@ namespace Game.Scripts.LiveObjects
 
                     _cameras[_activeCamera].Priority = 11;
                     _cameras[previous].Priority = 9;
+                    _switchCamera = false;
                 }
 
-                if (Input.GetKeyDown(KeyCode.Escape))
+                if (_isExitKeyDown)
                 {
                     _hacked = false;
                     onHackEnded?.Invoke();
                     ResetCameras();
+                    _isExitKeyDown = false;
                 }
             }
         }

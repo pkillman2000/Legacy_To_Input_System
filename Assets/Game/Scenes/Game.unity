@@ -3268,8 +3268,6 @@ MonoBehaviour:
   _displayMessage: Break the Crate
   _zoneItems: []
   _inventoryIcon: {fileID: 21300000, guid: 88841726d7ebbfc46bf799ee1bfb7d3f, type: 3}
-  _zoneKeyInput: 101
-  _keyState: 0
   _marker: {fileID: 1808342870}
 --- !u!1001 &198573547
 PrefabInstance:
@@ -8652,8 +8650,6 @@ MonoBehaviour:
   _zoneItems:
   - {fileID: 758722189}
   _inventoryIcon: {fileID: 21300000, guid: 8e46bcb2f14d4d144b9e4a395b47efa2, type: 3}
-  _zoneKeyInput: 101
-  _keyState: 0
   _marker: {fileID: 605505802}
 --- !u!4 &482471386 stripped
 Transform:
@@ -10773,8 +10769,6 @@ MonoBehaviour:
   _displayMessage: Denotate C4
   _zoneItems: []
   _inventoryIcon: {fileID: 21300000, guid: 88841726d7ebbfc46bf799ee1bfb7d3f, type: 3}
-  _zoneKeyInput: 32
-  _keyState: 0
   _marker: {fileID: 1331263896}
 --- !u!1001 &565131287
 PrefabInstance:
@@ -13206,7 +13200,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1.02e-43, y: 0, z: 0, w: -2.2432253e-32}
+  m_BoundingSphereOverride: {x: 1.9363069e+31, y: 1.638809e-10, z: 7.212827e+22, w: 1.09002504e+27}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -18243,8 +18237,6 @@ MonoBehaviour:
   _displayMessage: Reset
   _zoneItems: []
   _inventoryIcon: {fileID: 0}
-  _zoneKeyInput: 101
-  _keyState: 0
   _marker: {fileID: 1578479318}
 --- !u!1 &967188505
 GameObject:
@@ -25224,8 +25216,6 @@ MonoBehaviour:
   - {fileID: 474256985}
   - {fileID: 908574055}
   _inventoryIcon: {fileID: 21300000, guid: 81dff3a1ca824714aae965897edd2351, type: 3}
-  _zoneKeyInput: 101
-  _keyState: 0
   _marker: {fileID: 1583429342}
 --- !u!1001 &1178759240
 PrefabInstance:
@@ -26536,8 +26526,6 @@ MonoBehaviour:
   _displayMessage: Drive Forklift
   _zoneItems: []
   _inventoryIcon: {fileID: 21300000, guid: 88841726d7ebbfc46bf799ee1bfb7d3f, type: 3}
-  _zoneKeyInput: 101
-  _keyState: 0
   _marker: {fileID: 1840441541}
 --- !u!4 &1277958657 stripped
 Transform:
@@ -31243,7 +31231,6 @@ GameObject:
   - component: {fileID: 1550399102}
   - component: {fileID: 1550399101}
   - component: {fileID: 1550399106}
-  - component: {fileID: 1550399105}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -31351,18 +31338,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1550399105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1550399100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1550399106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36018,8 +35993,6 @@ MonoBehaviour:
   _displayMessage: Fly Drone
   _zoneItems: []
   _inventoryIcon: {fileID: 0}
-  _zoneKeyInput: 101
-  _keyState: 0
   _marker: {fileID: 1041737524}
 --- !u!1001 &1810757429
 PrefabInstance:
@@ -36143,15 +36116,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c14085171003ee2478ef40ebd5fcbee8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.036
+      value: 7.482779
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c14085171003ee2478ef40ebd5fcbee8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.558
+      value: -4.6228094
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c14085171003ee2478ef40ebd5fcbee8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.9247
+      value: 9.92429
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c14085171003ee2478ef40ebd5fcbee8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -39770,8 +39743,6 @@ MonoBehaviour:
   _displayMessage: Hack Cameras
   _zoneItems: []
   _inventoryIcon: {fileID: 0}
-  _zoneKeyInput: 101
-  _keyState: 1
   _marker: {fileID: 55150249}
 --- !u!4 &2030128479 stripped
 Transform:

@@ -42,7 +42,16 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""id"": ""46cd732c-dd25-4a9c-8331-85ac9f1f711f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Press,Hold"",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""EndInteraction"",
+                    ""type"": ""Button"",
+                    ""id"": ""829f4288-23cf-4279-bcc6-1050b257adbe"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
                     ""initialStateCheck"": false
                 }
             ],
@@ -160,7 +169,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""6bb2393b-5417-4e52-aa4f-95bddbf6cb0f"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -178,6 +187,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Interaction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""51f05770-4b70-428a-84ae-d9da2fdf6d5a"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EndInteraction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -186,20 +206,179 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
             ""id"": ""0cdda0be-b3ad-424e-be86-47726dda8a57"",
             ""actions"": [
                 {
-                    ""name"": ""Movement"",
+                    ""name"": ""Rotation"",
                     ""type"": ""Value"",
-                    ""id"": ""9a001102-d9be-4779-8afa-f90738bfcb95"",
+                    ""id"": ""7518def4-5ae7-4eec-9264-53837f34b063"",
                     ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Up_Down"",
+                    ""type"": ""Value"",
+                    ""id"": ""ff78dd46-59be-41d5-9a57-86d5fb76daed"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Movement"",
+                    ""type"": ""Value"",
+                    ""id"": ""9bb414ab-cfa0-49a2-bfda-41cd15b77ed6"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ExitDrone"",
+                    ""type"": ""Button"",
+                    ""id"": ""e2176a51-7b99-4e67-8b06-c4d707608e09"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
-                    ""name"": ""Forward_Backward"",
-                    ""id"": ""05f8f0c6-4517-48d3-ad6f-58ef54fcb14e"",
+                    ""name"": ""Keyboard"",
+                    ""id"": ""1bdec052-c49b-4199-a636-aa04c1642094"",
                     ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotation"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""353ec709-7ff2-4b33-a0ed-e902ce441668"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""ca07b504-1e0c-44f5-95be-5678375049c1"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Gamepad"",
+                    ""id"": ""c69500dc-ab4d-4314-94ff-d8f312bd9f1e"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotation"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""0a613013-d705-40b3-bef2-408655407c17"",
+                    ""path"": ""<Gamepad>/rightStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""d3acb741-d626-4d98-bb6e-3589b4c04592"",
+                    ""path"": ""<Gamepad>/rightStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Keyboard"",
+                    ""id"": ""fd6966b8-b593-4483-b3be-02f0cc067155"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Up_Down"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""7efddf02-499e-4f1a-8800-a88445fe09f1"",
+                    ""path"": ""<Keyboard>/v"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Up_Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""64055ccc-3b82-46be-bb69-e9ba18e20350"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Up_Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Gamepad"",
+                    ""id"": ""d8550662-c198-4cf8-b742-99cc392d8e41"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Up_Down"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""6708963e-e32f-42e7-a900-9d09d589f698"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Up_Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""48868ba6-794f-4adb-9e59-062c27f996c3"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Up_Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Keyboard"",
+                    ""id"": ""24104857-9bd0-4497-9a04-9ae326e578b3"",
+                    ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -208,41 +387,8 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""negative"",
-                    ""id"": ""15ef329a-077f-4216-aeee-048849e4700f"",
-                    ""path"": ""<Gamepad>/leftStick/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""3f0c6b8e-89cd-4201-a5e3-05abfa536285"",
-                    ""path"": ""<Gamepad>/leftStick/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""67bf9eb5-1fd1-407d-9276-1471342022e3"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""28fef8f6-e782-44f6-a3ba-04a680a2401c"",
+                    ""name"": ""up"",
+                    ""id"": ""ebf74823-4591-46fc-9ea4-b1195442bc68"",
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -252,19 +398,19 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Rotate"",
-                    ""id"": ""1d99a277-fecb-4b7e-9421-288ec1d1cef3"",
-                    ""path"": ""1DAxis"",
+                    ""name"": ""down"",
+                    ""id"": ""4d23953e-18f0-417d-9645-84882d2482f3"",
+                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Movement"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""negative"",
-                    ""id"": ""b678db56-b869-47c1-8f81-f1d12ab62048"",
+                    ""name"": ""left"",
+                    ""id"": ""531fb055-243d-4df0-8bbd-090556eedaf3"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -274,8 +420,8 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""positive"",
-                    ""id"": ""9b673a33-ca44-475f-b5c3-d4d62929fa0e"",
+                    ""name"": ""right"",
+                    ""id"": ""146e34d4-7dd1-42de-8468-4da38bd0e6e8"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -285,31 +431,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""negative"",
-                    ""id"": ""5ad097a8-df35-480a-99ea-e5cdc35ed165"",
-                    ""path"": ""<Gamepad>/rightStick/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""d64e5b05-92b1-49f5-a578-b5e36ba789b6"",
-                    ""path"": ""<Gamepad>/rightStick/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Up_Down"",
-                    ""id"": ""b24a11a1-aaf9-4634-b8ff-87f9b7486a84"",
-                    ""path"": ""1DAxis"",
+                    ""name"": ""Gamepad"",
+                    ""id"": ""6096f943-b089-4589-91e7-318a3a64b8d7"",
+                    ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -318,9 +442,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""negative"",
-                    ""id"": ""9237b19a-e1a6-4898-a1b1-f68cc3412677"",
-                    ""path"": ""<Keyboard>/v"",
+                    ""name"": ""up"",
+                    ""id"": ""859aee9d-2c4a-4af1-9d15-b9a5007fe0b8"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -329,9 +453,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""positive"",
-                    ""id"": ""c0ccfc96-b37e-4c77-a805-bdfb898f80c1"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""name"": ""down"",
+                    ""id"": ""7e3f2644-cfe1-43e5-a3f8-6c5d26804227"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -340,9 +464,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""negative"",
-                    ""id"": ""0d10945a-ccdb-4619-9bde-108f758ca69d"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""name"": ""left"",
+                    ""id"": ""fa21e7fc-ba36-4409-9c6b-0517a4bbb1e3"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -351,15 +475,26 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""positive"",
-                    ""id"": ""0c71e9b3-aeac-4223-bd0f-bfb30d8e0ff8"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""name"": ""right"",
+                    ""id"": ""963f6ea6-119a-489f-b108-a109a1999891"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""80d5f689-23d1-4d88-979f-6e65b700c9f9"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ExitDrone"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -384,6 +519,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Exit"",
+                    ""type"": ""Button"",
+                    ""id"": ""718005fe-5160-4f6e-81fc-304fe34c56bd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -562,6 +706,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Forks"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""28d67692-7643-4954-980a-b12fe886abdd"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Exit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -572,13 +727,18 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Interaction = m_Player.FindAction("Interaction", throwIfNotFound: true);
+        m_Player_EndInteraction = m_Player.FindAction("EndInteraction", throwIfNotFound: true);
         // Drone
         m_Drone = asset.FindActionMap("Drone", throwIfNotFound: true);
+        m_Drone_Rotation = m_Drone.FindAction("Rotation", throwIfNotFound: true);
+        m_Drone_Up_Down = m_Drone.FindAction("Up_Down", throwIfNotFound: true);
         m_Drone_Movement = m_Drone.FindAction("Movement", throwIfNotFound: true);
+        m_Drone_ExitDrone = m_Drone.FindAction("ExitDrone", throwIfNotFound: true);
         // Forklift
         m_Forklift = asset.FindActionMap("Forklift", throwIfNotFound: true);
         m_Forklift_Movement = m_Forklift.FindAction("Movement", throwIfNotFound: true);
         m_Forklift_Forks = m_Forklift.FindAction("Forks", throwIfNotFound: true);
+        m_Forklift_Exit = m_Forklift.FindAction("Exit", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -640,12 +800,14 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Interaction;
+    private readonly InputAction m_Player_EndInteraction;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
         public PlayerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Interaction => m_Wrapper.m_Player_Interaction;
+        public InputAction @EndInteraction => m_Wrapper.m_Player_EndInteraction;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -661,6 +823,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Interaction.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteraction;
                 @Interaction.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteraction;
                 @Interaction.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteraction;
+                @EndInteraction.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEndInteraction;
+                @EndInteraction.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEndInteraction;
+                @EndInteraction.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEndInteraction;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -671,6 +836,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Interaction.started += instance.OnInteraction;
                 @Interaction.performed += instance.OnInteraction;
                 @Interaction.canceled += instance.OnInteraction;
+                @EndInteraction.started += instance.OnEndInteraction;
+                @EndInteraction.performed += instance.OnEndInteraction;
+                @EndInteraction.canceled += instance.OnEndInteraction;
             }
         }
     }
@@ -679,12 +847,18 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     // Drone
     private readonly InputActionMap m_Drone;
     private IDroneActions m_DroneActionsCallbackInterface;
+    private readonly InputAction m_Drone_Rotation;
+    private readonly InputAction m_Drone_Up_Down;
     private readonly InputAction m_Drone_Movement;
+    private readonly InputAction m_Drone_ExitDrone;
     public struct DroneActions
     {
         private @PlayerInputActions m_Wrapper;
         public DroneActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Rotation => m_Wrapper.m_Drone_Rotation;
+        public InputAction @Up_Down => m_Wrapper.m_Drone_Up_Down;
         public InputAction @Movement => m_Wrapper.m_Drone_Movement;
+        public InputAction @ExitDrone => m_Wrapper.m_Drone_ExitDrone;
         public InputActionMap Get() { return m_Wrapper.m_Drone; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -694,16 +868,34 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_DroneActionsCallbackInterface != null)
             {
+                @Rotation.started -= m_Wrapper.m_DroneActionsCallbackInterface.OnRotation;
+                @Rotation.performed -= m_Wrapper.m_DroneActionsCallbackInterface.OnRotation;
+                @Rotation.canceled -= m_Wrapper.m_DroneActionsCallbackInterface.OnRotation;
+                @Up_Down.started -= m_Wrapper.m_DroneActionsCallbackInterface.OnUp_Down;
+                @Up_Down.performed -= m_Wrapper.m_DroneActionsCallbackInterface.OnUp_Down;
+                @Up_Down.canceled -= m_Wrapper.m_DroneActionsCallbackInterface.OnUp_Down;
                 @Movement.started -= m_Wrapper.m_DroneActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_DroneActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_DroneActionsCallbackInterface.OnMovement;
+                @ExitDrone.started -= m_Wrapper.m_DroneActionsCallbackInterface.OnExitDrone;
+                @ExitDrone.performed -= m_Wrapper.m_DroneActionsCallbackInterface.OnExitDrone;
+                @ExitDrone.canceled -= m_Wrapper.m_DroneActionsCallbackInterface.OnExitDrone;
             }
             m_Wrapper.m_DroneActionsCallbackInterface = instance;
             if (instance != null)
             {
+                @Rotation.started += instance.OnRotation;
+                @Rotation.performed += instance.OnRotation;
+                @Rotation.canceled += instance.OnRotation;
+                @Up_Down.started += instance.OnUp_Down;
+                @Up_Down.performed += instance.OnUp_Down;
+                @Up_Down.canceled += instance.OnUp_Down;
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
+                @ExitDrone.started += instance.OnExitDrone;
+                @ExitDrone.performed += instance.OnExitDrone;
+                @ExitDrone.canceled += instance.OnExitDrone;
             }
         }
     }
@@ -714,12 +906,14 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private IForkliftActions m_ForkliftActionsCallbackInterface;
     private readonly InputAction m_Forklift_Movement;
     private readonly InputAction m_Forklift_Forks;
+    private readonly InputAction m_Forklift_Exit;
     public struct ForkliftActions
     {
         private @PlayerInputActions m_Wrapper;
         public ForkliftActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Forklift_Movement;
         public InputAction @Forks => m_Wrapper.m_Forklift_Forks;
+        public InputAction @Exit => m_Wrapper.m_Forklift_Exit;
         public InputActionMap Get() { return m_Wrapper.m_Forklift; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -735,6 +929,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Forks.started -= m_Wrapper.m_ForkliftActionsCallbackInterface.OnForks;
                 @Forks.performed -= m_Wrapper.m_ForkliftActionsCallbackInterface.OnForks;
                 @Forks.canceled -= m_Wrapper.m_ForkliftActionsCallbackInterface.OnForks;
+                @Exit.started -= m_Wrapper.m_ForkliftActionsCallbackInterface.OnExit;
+                @Exit.performed -= m_Wrapper.m_ForkliftActionsCallbackInterface.OnExit;
+                @Exit.canceled -= m_Wrapper.m_ForkliftActionsCallbackInterface.OnExit;
             }
             m_Wrapper.m_ForkliftActionsCallbackInterface = instance;
             if (instance != null)
@@ -745,6 +942,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Forks.started += instance.OnForks;
                 @Forks.performed += instance.OnForks;
                 @Forks.canceled += instance.OnForks;
+                @Exit.started += instance.OnExit;
+                @Exit.performed += instance.OnExit;
+                @Exit.canceled += instance.OnExit;
             }
         }
     }
@@ -753,14 +953,19 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnInteraction(InputAction.CallbackContext context);
+        void OnEndInteraction(InputAction.CallbackContext context);
     }
     public interface IDroneActions
     {
+        void OnRotation(InputAction.CallbackContext context);
+        void OnUp_Down(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
+        void OnExitDrone(InputAction.CallbackContext context);
     }
     public interface IForkliftActions
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnForks(InputAction.CallbackContext context);
+        void OnExit(InputAction.CallbackContext context);
     }
 }
